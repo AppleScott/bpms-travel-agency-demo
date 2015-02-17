@@ -8,7 +8,7 @@ set AUTHORS2=Eric D. Schabell
 set PROJECT=git@github.com:jbossdemocentral/bpms-travel-agency-demo.git
 set PRODUCT=JBoss BPM Suite & JBoss DV
 set JBOSS_HOME=%PROJECT_HOME%target\jboss-eap-6.1
-set JBOSS_HOME_DV=%PROJECT_HOME%target\jboss-eap-6.1.dv
+set JBOSS_HOME_DV=%PROJECT_HOME%target\jboss-eap-6.3
 set SERVER_DIR=%JBOSS_HOME%\standalone\deployments\
 set SERVER_CONF=%JBOSS_HOME%\standalone\configuration\
 set SERVER_CONF_DV=%JBOSS_HOME_DV%\standalone\configuration\
@@ -80,7 +80,7 @@ if exist %JBOSS_HOME% (
 REM Run DV installer.
 echo Product installer running now...
 echo.
-call java -jar %SRC_DIR%\%DV% %SUPPORT_DIR%\installation-dv 
+call java -jar %SRC_DIR%\%DV% %SUPPORT_DIR%\installation-dv -variablefile %SUPPORT_DIR%\installation-dv.variables
 
 if not "%ERRORLEVEL%" == "0" (
 	echo Error Occurred During DV Installation!
@@ -195,6 +195,7 @@ echo =                                                                          
 echo =  View the DV setup:                                                        =
 echo =                                                                            =
 echo =    TODO: detail or point to doc that does.                                 =
+echo =                    user: teiidUser / password: jbossdv1!                   =
 echo =                                                                            =
 echo =   %DEMO% Setup Complete.                                              =
 echo =                                                                            =

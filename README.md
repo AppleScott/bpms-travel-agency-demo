@@ -30,6 +30,8 @@ Follow the output instructions to start the JBoss BPM Suite & JBoss DV:
      $ ./target/jboss-eap-6.1.dv/bin/standalone.sh  
 
      Login to [http://localhost:8080/business-central](http://localhost:8080/business-central)  (u:erics / p:bpmsuite1!)
+
+     DV login:  (u:teiidUser / p:jbossdv1!)
     ```
 
 

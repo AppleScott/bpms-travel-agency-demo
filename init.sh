@@ -5,7 +5,7 @@ AUTHORS2="Bill Kemp, Eric D. Schabell"
 PROJECT="git@github.com:jbossdemocentral/bpms-travel-agency-demo.git"
 PRODUCT="JBoss BPM Suite & JBoss DV"
 JBOSS_HOME=./target/jboss-eap-6.1
-JBOSS_HOME_DV=./target/jboss-eap-6.1.dv
+JBOSS_HOME_DV=./target/jboss-eap-6.3
 SERVER_DIR=$JBOSS_HOME/standalone/deployments/
 SERVER_CONF=$JBOSS_HOME/standalone/configuration/
 SERVER_CONF_DV=$JBOSS_HOME_DV/standalone/configuration/
@@ -84,16 +84,13 @@ echo
 
 # DV installer.
 echo
-java -jar $SRC_DIR/$DV $SUPPORT_DIR/installation-dv 
+java -jar $SRC_DIR/$DV $SUPPORT_DIR/installation-dv  -variablefile $SUPPORT_DIR/installation-dv.variables
 echo
 
 if [ $? -ne 0 ]; then
 	echo Error occurred during DV installation
 	exit
 fi
-
-# move DV install aside, make room for BPM Suite.
-mv $JBOSS_HOME $JBOSS_HOME_DV
 
 echo
 echo "  - install teiid security files..."
@@ -181,11 +178,11 @@ echo "=  ******** BPM APP LEVERAGES DV DATA SOURCES SCENARIO **********         
 echo "=                                                                                         =" 
 echo "=  Login to business central to build & deploy BRMS rules project at:                     ="
 echo "=                                                                                         =" 
-echo "=    http://localhost:8180/business-central     (u:erics /p:bpmsuite1!)      ="
+echo "=    http://localhost:8180/business-central     (u:erics/p:bpmsuite1!)                    ="
 echo "=                                                                                         =" 
 echo "=  View the DV setup:                                                                     ="
 echo "=                                                                                         ="
-echo "=    TODO: detail or point to doc that does.                                              ="
+echo "=    TODO: detail or point to doc that does.      (u:teiidUser/p:jbossdv1!)               ="
 echo "=                                                                                         ="
 echo "=   $DEMO Setup Complete.                                ="
 echo "=                                                                                         ="
