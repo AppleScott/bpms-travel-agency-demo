@@ -10,8 +10,8 @@ Welcome to the JBoss BPM Travel Agency!
 There are three options available to you for using this demo; local, OpenShift and Docker.
 
 
-Option 1 - Install on your machine
-----------------------------------
+Install on your machine
+-----------------------
 1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-travel-agency-demo/archive/master.zip)
 
 2. Add products to installs directory. For example download and add BPMS installer jar into the installs directory.
