@@ -1,8 +1,9 @@
-JBoss BPM Suite Travel Agency Demo
-==================================
+JBoss BPM Suite Travel Agency with DV Integration Demo
+======================================================
 This is an online employee travel booking process project. It contains multiple web services for looking up data for the process
 and rules to calculate pricing. Furthermore, there are several tasks that can be activated to evaluate pricing and to review the
-final booking data before completing the booking.
+final booking data before completing the booking. There are diverse data sources integrated to supply the flight and hotel web
+services with disparate data through the JBoss Data Virtualization product.
 
 Welcome to the JBoss BPM Travel Agency!
 
@@ -17,64 +18,19 @@ Option 1 - Install on your machine
 
 3. Run 'init.sh' or 'init.bat' file. 'init.bat' must be run with Administrative privileges.
 
-4. Start JBoss BPMS Server by running 'standalone.sh' or 'standalone.bat' in the <path-to-project>/target/jboss-eap-6.1/bin directory.
-
-5. Login to [http://localhost:8080/business-central](http://localhost:8080/business-central)
+Follow the output instructions to start the JBoss BPM Suite & JBoss DV:
 
     ```
-     - login for admin and other roles (u:erics / p:bpmsuite1!)
+     Start JBoss BRMS server:                                                       
+                                                                                       
+     $ ./target/jboss-eap-6.1/bin/standalone.sh -Djboss.socket.binding.port-offset=100 
+                                                                                       
+   In seperate terminal start JBoss DV server:                                         
+                                                                                       
+     $ ./target/jboss-eap-6.1.dv/bin/standalone.sh  
+
+     Login to [http://localhost:8080/business-central](http://localhost:8080/business-central)  (u:erics / p:bpmsuite1!)
     ```
-
-
-Option 2 - Install with one click in xPaaS (bpmPaaS)
-----------------------------------------------------
-After clicking button, ensure `Gear` size is set to `medium`:
-  
-[![Click to install OpenShift](http://launch-shifter.rhcloud.com/launch/light/Install
-bpmPaaS.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=https://raw.githubusercontent.com/jbossdemocentral/cartridge-bpmPaaS-travel-agency-demo/master/metadata/manifest.yml&name=travelagency&gear_profile=medium&initial_git_url=)
-
-Once installed you can use the JBoss BPM Suite logins: 
-
-   * u:erics   p: bpmsuite  (admin)
-
-   * u: alan   p: bpmsuite  (analyst)
-
-   * u: daniel p: bpmsuite (developer)
-
-   * u: ursla  p: bpmsuite (user)
-
-   * u: mary   p: bpmsuite (manager)
-
-
-Option 3 - Generate docker install
-----------------------------------
-The following steps can be used to configure and run the demo in a docker container
-
-1. [Download and unzip.](https://github.com/jbossdemocentral/bpms-travel-agency-demo/archive/master.zip)
-
-2. Add product installer to installs directory. For example download and add BPMS installer jar into the installs directory.
-
-3. Copy contents of support/docker directory to the project root.
-
-4. Build demo image
-
-	```
-	docker build -t jbossdemocentral/bpms-travel-agency-demo .
-	```
-5. Start demo container
-
-	```
-	docker run --it -p 8080:8080 -p 9990:9990 jbossdemocentral/bpms-travel-agency-demo
-	```
-6. Login to http://<DOCKER_HOST>:8080/business-central
-  
-    ```
-     - login for admin and other roles (u:erics / p:bpmsuite1!)
-    ```
-    
-*Note*: Replace localhost with DOCKER_HOST when it appears in other locations within the documentation
-
-Additional information can be found in the jbossdemocentral docker [developer repository](https://github.com/jbossdemocentral/docker-developer)
 
 
 Booking a trip to Edinburgh (just one scenario)
