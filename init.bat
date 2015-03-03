@@ -74,7 +74,7 @@ REM Remove existing installation.
 if exist %JBOSS_HOME% (
          echo - existing JBoss product install removed...
          echo.
-         rmdir /s /q target"
+         rmdir /s /q target
  )
 
 REM Run DV installer.
